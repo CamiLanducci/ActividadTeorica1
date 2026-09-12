@@ -1,0 +1,303 @@
+/* ==========================================================================
+   PETFOUND — estilosIA.css
+   Hoja de estilos única para index.html, contacto.html y quienes-somos.html.
+   - Paleta de colores definida con variables CSS (custom properties).
+   - Barra de navegación con Flexbox + media query para mobile.
+   - Selector de categoría (Perros/Gatos) resuelto 100% con HTML + CSS
+     (checkbox + radios ocultos, accedidos por su "id" con :checked).
+   - Grilla de tarjetas de mascotas con Flexbox, imágenes con borde marrón
+     y relleno de 1cm (box model).
+   - Contraste de colores verificado para cumplir WCAG 2.1 AA.
+   ========================================================================== */
+
+/* ---------- 1. Variables de color y utilidades ---------- */
+:root {
+  --verde-principal: #2f6b4f;
+  --verde-oscuro: #21503a;
+  --verde-claro: #eaf3ee;
+  --marron-principal: #6b4226;
+  --marron-oscuro: #4a2d1a;
+  --marron-claro: #e7d9c9;
+  --gris-neutro: #6e6e6e;
+  --gris-claro: #f4f4f2;
+  --rosa-pastel: #f3cdd6;
+  --rosa-pastel-oscuro: #d98fa3;
+  --blanco: #ffffff;
+  --texto-oscuro: #2b2b2b;
+  --radio-borde: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  color: var(--texto-oscuro);
+  background: var(--gris-claro);
+  line-height: 1.55;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--marron-principal); }
+a:hover { color: var(--verde-oscuro); }
+
+/* Foco visible accesible en todos los elementos interactivos (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-within {
+  outline: 3px solid var(--rosa-pastel-oscuro);
+  outline-offset: 2px;
+}
+
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- 2. Header y barra de navegación (Flexbox) ---------- */
+.site-header {
+  background: var(--verde-principal);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .85rem 1.25rem;
+}
+
+.nav-brand {
+  color: var(--blanco);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nav-brand:hover { color: var(--rosa-pastel); }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 600;
+  padding: .35rem .6rem;
+  border-radius: 6px;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { background: rgba(255, 255, 255, .18); }
+
+/* Página responsiva: en pantallas angostas los enlaces bajan debajo del nombre */
+@media (max-width: 599px) {
+  .navbar { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .nav-links { width: 100%; justify-content: space-between; }
+}
+
+@media (min-width: 600px) {
+  .nav-links { flex-wrap: nowrap; }
+}
+
+/* ---------- 3. Layout general ---------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 3rem;
+}
+
+h1 { color: var(--marron-oscuro); margin-top: 0; }
+h2 { color: var(--verde-oscuro); }
+
+/* ---------- 4. Selector de categoría — solo HTML y CSS ---------- */
+/* Técnica: un checkbox oculto abre/cierra la lista (aspecto de <select>);
+   dos radios ocultos (con id) guardan la categoría elegida; cada panel de
+   mascotas se muestra según qué radio está :checked, usando el selector de
+   hermano general (~) para "acceder al elemento a través de su id". */
+
+.selector-categoria { margin-bottom: 2rem; }
+
+/* El checkbox, los radios y los paneles son todos hermanos directos de
+   .selector-categoria: eso es lo que permite que el selector de hermano
+   general (~) "acceda" de un elemento a otro a través de su id. */
+.dropdown-toggle-input,
+.tab-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.dropdown-current {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 280px;
+  border: 2px solid var(--marron-principal);
+  border-radius: var(--radio-borde);
+  padding: .65rem 1rem;
+  background: var(--blanco);
+  cursor: pointer;
+  user-select: none;
+}
+.dropdown-current::after { content: "\25BE"; margin-left: .5rem; color: var(--marron-principal); }
+.dropdown-toggle-input:checked ~ .dropdown-current::after { content: "\25B4"; }
+.dropdown-toggle-input:checked ~ .dropdown-current { border-color: var(--verde-principal); }
+
+/* Opciones de la lista desplegable: ocultas hasta que se marca el checkbox */
+.dropdown-option {
+  display: none;
+  max-width: 280px;
+  padding: .55rem .75rem;
+  border: 2px solid var(--marron-principal);
+  border-top: none;
+  background: var(--blanco);
+  cursor: pointer;
+}
+.dropdown-option:last-of-type { border-radius: 0 0 var(--radio-borde) var(--radio-borde); }
+.dropdown-toggle-input:checked ~ .dropdown-option { display: block; }
+.dropdown-option:hover { background: var(--verde-claro); }
+
+/* Resaltar la opción actualmente elegida (radio marcado, identificado por id) */
+#tab-perros:checked ~ label[for="tab-perros"],
+#tab-gatos:checked ~ label[for="tab-gatos"] {
+  background: var(--rosa-pastel);
+  color: var(--marron-oscuro);
+}
+
+@media (max-width: 599px) {
+  .dropdown-current,
+  .dropdown-option { max-width: 100%; }
+}
+
+/* Paneles de mascotas: ocultos por defecto, visibles según el radio marcado */
+.panel-mascotas { display: none; margin-top: 1.5rem; }
+#tab-perros:checked ~ #panel-perros { display: block; }
+#tab-gatos:checked ~ #panel-gatos { display: block; }
+
+/* ---------- 5. Grilla de tarjetas de mascotas (Flexbox) ---------- */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border: 2px solid var(--verde-principal);
+  border-radius: var(--radio-borde);
+  width: 260px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .12);
+}
+
+/* Modelo de caja: content = foto, padding = relleno de 1cm, border = marrón */
+.tarjeta__imagen-contenedor {
+  border: 6px solid var(--marron-principal);
+  background: var(--marron-claro);
+  padding: 1cm;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tarjeta__imagen-contenedor img { width: 100%; height: auto; border-radius: 2px; }
+
+.tarjeta h3 { margin: .25rem 0 0; color: var(--marron-oscuro); }
+.tarjeta p { margin: .1rem 0; font-size: .92rem; }
+.tarjeta .enlace-pdf {
+  margin-top: auto;
+  align-self: flex-start;
+  background: var(--rosa-pastel);
+  color: var(--marron-oscuro);
+  padding: .45rem .8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.tarjeta .enlace-pdf:hover,
+.tarjeta .enlace-pdf:focus-visible {
+  background: var(--rosa-pastel-oscuro);
+  color: var(--marron-oscuro);
+}
+
+@media (max-width: 599px) {
+  .tarjeta { width: 100%; }
+}
+
+/* ---------- 6. Formulario de contacto ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 480px;
+  background: var(--blanco);
+  padding: 1.5rem;
+  border: 2px solid var(--verde-principal);
+  border-radius: var(--radio-borde);
+}
+
+.formulario fieldset { border: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.formulario legend { font-size: 1.25rem; font-weight: 700; color: var(--marron-oscuro); padding: 0 0 .5rem; }
+
+.campo { display: flex; flex-direction: column; gap: .3rem; }
+.campo label { font-weight: 600; color: var(--marron-oscuro); }
+.campo input {
+  padding: .55rem .7rem;
+  border: 1px solid var(--gris-neutro);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.formulario button {
+  align-self: flex-start;
+  background: var(--verde-principal);
+  color: var(--blanco);
+  border: none;
+  padding: .65rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.formulario button:hover,
+.formulario button:focus-visible { background: var(--verde-oscuro); }
+
+/* ---------- 7. Página "Quiénes somos" ---------- */
+.info-institucional {
+  background: var(--blanco);
+  border: 2px solid var(--marron-principal);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  max-width: 640px;
+}
+.info-institucional dt { font-weight: 700; color: var(--verde-oscuro); margin-top: .85rem; }
+.info-institucional dt:first-child { margin-top: 0; }
+.info-institucional dd { margin: .15rem 0 0; }
+
+/* ---------- 8. Footer ---------- */
+.site-footer {
+  text-align: center;
+  padding: 1.25rem;
+  background: var(--marron-principal);
+  color: var(--blanco);
+  font-size: .9rem;
+}

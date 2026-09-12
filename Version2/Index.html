@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Petfound: sitio estático para publicar y consultar mascotas perdidas.">
+    <title>Petfound | Mascotas perdidas</title>
+    <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <a class="brand" href="index.html">Petfound</a>
+
+            <div class="nav-links">
+                <a href="index.html" aria-current="page">Inicio</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="quienes-somos.html">Quiénes somos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">Encontrarlos es el objetivo</p>
+                <h1>Mascotas perdidas</h1>
+                <p>
+                    Consultá los avisos de perros y gatos perdidos.
+                    Cada ficha contiene información para ayudar a encontrarlos.
+                </p>
+            </div>
+        </section>
+
+        <section class="catalogo" aria-labelledby="titulo-catalogo">
+            <div class="section-heading">
+                <p class="eyebrow">Buscá por categoría</p>
+                <h2 id="titulo-catalogo">Elegí una categoría</h2>
+                <p>Seleccioná una opción para visualizar los avisos correspondientes.</p>
+            </div>
+
+            <div class="category-selector" aria-label="Categorías de mascotas">
+                <a href="#perros" class="category-option">Perros</a>
+                <a href="#gatos" class="category-option">Gatos</a>
+            </div>
+
+            <p class="selection-help">
+                Seleccioná <strong>Perros</strong> o <strong>Gatos</strong> para ver los avisos.
+            </p>
+
+            <!-- CATEGORÍA PERROS -->
+            <section id="perros" class="pet-category" aria-labelledby="titulo-perros">
+                <div class="category-title">
+                    <div>
+                        <p class="eyebrow">Categoría seleccionada</p>
+                        <h2 id="titulo-perros">Perros perdidos</h2>
+                    </div>
+                    <a href="#titulo-catalogo" class="back-link">Cambiar categoría</a>
+                </div>
+
+                <div class="pet-list">
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/perro1.jpg"
+                            alt="Luna, perra mestiza de tamaño mediano"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Luna</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>Centro de La Plata</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>12 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Mestiza, tamaño mediano, pelaje marrón y blanco. Lleva collar rojo.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/perro1.pdf" target="_blank" rel="noopener">
+                                Ver información de Luna (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/perro2.jpg"
+                            alt="Toby, perro labrador de pelaje dorado"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Toby</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>Parque Saavedra</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>18 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Labrador dorado, grande, muy amigable. Tiene una mancha blanca en el pecho.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/perro2.pdf" target="_blank" rel="noopener">
+                                Ver información de Toby (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/perro3.jpg"
+                            alt="Rocky, perro pequeño de pelaje negro y blanco"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Rocky</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>Los Hornos</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>22 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Pequeño, pelaje negro y blanco, orejas paradas. Lleva collar azul.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/perro3.pdf" target="_blank" rel="noopener">
+                                Ver información de Rocky (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORÍA GATOS -->
+            <section id="gatos" class="pet-category" aria-labelledby="titulo-gatos">
+                <div class="category-title">
+                    <div>
+                        <p class="eyebrow">Categoría seleccionada</p>
+                        <h2 id="titulo-gatos">Gatos perdidos</h2>
+                    </div>
+                    <a href="#titulo-catalogo" class="back-link">Cambiar categoría</a>
+                </div>
+
+                <div class="pet-list">
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/gato1.jpg"
+                            alt="Milo, gato atigrado de ojos verdes"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Milo</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>City Bell</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>10 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Atigrado gris, ojos verdes, tamaño mediano. Tiene una pequeña mancha blanca en el hocico.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/gato1.pdf" target="_blank" rel="noopener">
+                                Ver información de Milo (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/gato2.jpg"
+                            alt="Nina, gata blanca y gris"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Nina</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>Villa Elisa</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>16 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Blanca y gris, ojos amarillos, pequeña. Tiene una mancha gris en la frente.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/gato2.pdf" target="_blank" rel="noopener">
+                                Ver información de Nina (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="pet-card">
+                        <img
+                            src="imagenes/gato3.jpg"
+                            alt="Simba, gato naranja de pelo corto"
+                            class="pet-image"
+                        >
+                        <div class="pet-content">
+                            <h3>Simba</h3>
+                            <dl class="pet-details">
+                                <div>
+                                    <dt>Zona</dt>
+                                    <dd>Ringuelet</dd>
+                                </div>
+                                <div>
+                                    <dt>Fecha</dt>
+                                    <dd>24 de agosto de 2026</dd>
+                                </div>
+                                <div>
+                                    <dt>Características</dt>
+                                    <dd>Naranja, pelo corto, ojos verdes. Tiene una pequeña cicatriz en la oreja derecha.</dd>
+                                </div>
+                            </dl>
+                            <a class="pdf-link" href="info/gato3.pdf" target="_blank" rel="noopener">
+                                Ver información de Simba (PDF)
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Petfound. Una iniciativa para ayudar a encontrar mascotas.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petfound — Mascotas perdidas</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="index.html" class="nav-brand">Petfound</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Mascotas perdidas</h1>
+    <p>Elegí una categoría para ver el listado de mascotas perdidas.</p>
+
+    <section class="selector-categoria" aria-label="Selector de categoría de mascota">
+        <!-- Checkbox oculto: abre/cierra la lista desplegable (sin JavaScript) -->
+        <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle-input">
+        <label for="dropdown-toggle" class="dropdown-current">Seleccionar categoría</label>
+
+        <!-- Radios ocultos: guardan la categoría elegida. El checkbox, los radios,
+             sus labels y los paneles de abajo son todos hermanos directos, por eso
+             el CSS puede "acceder a cada elemento a través de su id" con :checked ~ -->
+        <input type="radio" name="categoria" id="tab-perros" class="tab-input" checked>
+        <label for="tab-perros" class="dropdown-option">🐶 Perros</label>
+
+        <input type="radio" name="categoria" id="tab-gatos" class="tab-input">
+        <label for="tab-gatos" class="dropdown-option">🐱 Gatos</label>
+
+        <!-- Paneles: se muestran de forma estática según qué radio esté :checked -->
+        <section id="panel-perros" class="panel-mascotas" aria-label="Listado de perros perdidos">
+          <h2>Perros perdidos</h2>
+          <div class="tarjetas">
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/perro1.jpg" alt="Rocky, perro mediano de pelo corto marrón">
+              </div>
+              <h3>Rocky</h3>
+              <p><strong>Zona:</strong> Barrio Norte, La Plata</p>
+              <p><strong>Fecha:</strong> 03/09/2026</p>
+              <p><strong>Características:</strong> mediano, pelo corto marrón, collar rojo.</p>
+              <a class="enlace-pdf" href="info/perro1.pdf">Ver ficha en PDF</a>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/perro2.jpg" alt="Toby, perro pequeño blanco y negro">
+              </div>
+              <h3>Toby</h3>
+              <p><strong>Zona:</strong> Plaza San Martín, La Plata</p>
+              <p><strong>Fecha:</strong> 28/08/2026</p>
+              <p><strong>Características:</strong> pequeño, blanco y negro, muy sociable.</p>
+              <a class="enlace-pdf" href="info/perro2.pdf">Ver ficha en PDF</a>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/perro3.jpg" alt="Luna, perra grande de pelaje dorado">
+              </div>
+              <h3>Luna</h3>
+              <p><strong>Zona:</strong> Camino Centenario km 5</p>
+              <p><strong>Fecha:</strong> 05/09/2026</p>
+              <p><strong>Características:</strong> grande, pelaje dorado, cicatriz en la oreja izquierda.</p>
+              <a class="enlace-pdf" href="info/perro3.pdf">Ver ficha en PDF</a>
+            </article>
+
+          </div>
+        </section>
+
+        <section id="panel-gatos" class="panel-mascotas" aria-label="Listado de gatos perdidos">
+          <h2>Gatos perdidos</h2>
+          <div class="tarjetas">
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/gato1.jpg" alt="Michi, gato gris atigrado de ojos verdes">
+              </div>
+              <h3>Michi</h3>
+              <p><strong>Zona:</strong> Calle 7 y 50, La Plata</p>
+              <p><strong>Fecha:</strong> 01/09/2026</p>
+              <p><strong>Características:</strong> gris atigrado, ojos verdes, castrado.</p>
+              <a class="enlace-pdf" href="info/gato1.pdf">Ver ficha en PDF</a>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/gato2.jpg" alt="Salem, gato negro con collar de cascabel">
+              </div>
+              <h3>Salem</h3>
+              <p><strong>Zona:</strong> Barrio Hipódromo, La Plata</p>
+              <p><strong>Fecha:</strong> 20/08/2026</p>
+              <p><strong>Características:</strong> negro, collar con cascabel.</p>
+              <a class="enlace-pdf" href="info/gato2.pdf">Ver ficha en PDF</a>
+            </article>
+
+            <article class="tarjeta">
+              <div class="tarjeta__imagen-contenedor">
+                <img src="imagenes/gato3.jpg" alt="Nube, gato blanco con una mancha gris en la cola">
+              </div>
+              <h3>Nube</h3>
+              <p><strong>Zona:</strong> City Bell</p>
+              <p><strong>Fecha:</strong> 07/09/2026</p>
+              <p><strong>Características:</strong> blanco, con una mancha gris en la cola.</p>
+              <a class="enlace-pdf" href="info/gato3.pdf">Ver ficha en PDF</a>
+            </article>
+
+          </div>
+        </section>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Petfound — Sitio estático de ejemplo académico.</p>
+  </footer>
+
+</body>
+</html>

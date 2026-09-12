@@ -1,0 +1,668 @@
+/* =========================================================
+   PETFOUND - HOJA DE ESTILOS
+   Compatible con HTML5 y CSS3
+   Diseño responsivo y accesible
+   ========================================================= */
+
+/* -------------------------
+   VARIABLES Y RESETEO
+   ------------------------- */
+
+:root {
+    --color-verde-oscuro: #24513b;
+    --color-verde: #397653;
+    --color-verde-claro: #e4f0e7;
+
+    --color-marron: #70452c;
+    --color-marron-oscuro: #4b2e1e;
+    --color-marron-claro: #f3e9e1;
+
+    --color-gris-900: #263238;
+    --color-gris-700: #4b5563;
+    --color-gris-500: #6b7280;
+    --color-gris-300: #d1d5db;
+    --color-gris-100: #f3f4f6;
+    --color-blanco: #ffffff;
+
+    --color-rosa: #f7d7df;
+    --color-rosa-oscuro: #7b3045;
+
+    --color-fondo: #fafbf9;
+    --color-foco: #8a5a00;
+
+    --fuente-principal: Arial, Helvetica, sans-serif;
+
+    --radio-sm: 0.35rem;
+    --radio-md: 0.75rem;
+    --radio-lg: 1rem;
+
+    --sombra-suave: 0 4px 16px rgba(38, 50, 56, 0.08);
+    --sombra-media: 0 8px 24px rgba(38, 50, 56, 0.12);
+
+    --ancho-contenido: 1180px;
+}
+
+/* Box sizing para un cálculo de tamaños consistente */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-gris-900);
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: var(--color-verde-oscuro);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+a:hover {
+    color: var(--color-marron-oscuro);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--color-foco);
+    outline-offset: 3px;
+}
+
+/* -------------------------
+   NAVEGACIÓN
+   ------------------------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-blanco);
+    border-bottom: 1px solid var(--color-gris-300);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: var(--ancho-contenido);
+    min-height: 4.5rem;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.brand {
+    color: var(--color-verde-oscuro);
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: var(--color-marron-oscuro);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radio-sm);
+    color: var(--color-gris-900);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+    background-color: var(--color-verde-claro);
+    color: var(--color-verde-oscuro);
+}
+
+/* -------------------------
+   TIPOGRAFÍA GENERAL
+   ------------------------- */
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--color-verde-oscuro);
+    line-height: 1.2;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+.eyebrow {
+    margin-bottom: 0.5rem;
+    color: var(--color-marron);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* -------------------------
+   HERO DE INICIO
+   ------------------------- */
+
+.hero {
+    background-color: var(--color-verde-oscuro);
+    color: var(--color-blanco);
+}
+
+.hero-content {
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+.hero h1 {
+    color: var(--color-blanco);
+}
+
+.hero .eyebrow {
+    color: var(--color-rosa);
+}
+
+.hero p:last-child {
+    max-width: 40rem;
+    margin-bottom: 0;
+    color: #f3f4f6;
+    font-size: 1.15rem;
+}
+
+/* -------------------------
+   HERO DE PÁGINAS INTERNAS
+   ------------------------- */
+
+.page-hero {
+    background-color: var(--color-marron-claro);
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.page-hero h1 {
+    margin-bottom: 1rem;
+}
+
+.page-hero p:last-child {
+    max-width: 42rem;
+    margin: 0 auto;
+    color: var(--color-gris-700);
+    font-size: 1.1rem;
+}
+
+/* -------------------------
+   SECCIONES
+   ------------------------- */
+
+.catalogo,
+.content-section {
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.section-heading {
+    margin-bottom: 2rem;
+}
+
+.section-heading > p:last-child {
+    color: var(--color-gris-700);
+}
+
+.selection-help {
+    margin: 1.5rem 0 2rem;
+    color: var(--color-gris-700);
+}
+
+/* -------------------------
+   SELECTOR DE CATEGORÍAS
+   ------------------------- */
+
+.category-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.35rem;
+    border: 1px solid var(--color-gris-300);
+    border-radius: var(--radio-md);
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+}
+
+.category-option {
+    display: inline-block;
+    min-width: 9rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radio-sm);
+    color: var(--color-gris-900);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.category-option:hover,
+.category-option:focus-visible {
+    background-color: var(--color-verde-claro);
+    color: var(--color-verde-oscuro);
+}
+
+/* Ocultar las categorías al cargar */
+.pet-category {
+    display: none;
+    scroll-margin-top: 6rem;
+}
+
+/* Mostrar la categoría seleccionada */
+.pet-category:target {
+    display: block;
+}
+
+/* Mostrar Perros por defecto */
+.pet-category:first-of-type {
+    display: block;
+}
+
+/* Si se selecciona Gatos, se oculta el primer bloque */
+#perros:has(~ #gatos:target) {
+    display: none;
+}
+
+/* -------------------------
+   TÍTULO DE CATEGORÍA
+   ------------------------- */
+
+.category-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-verde-claro);
+}
+
+.category-title h2 {
+    margin-bottom: 0;
+}
+
+.back-link {
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* -------------------------
+   TARJETAS DE MASCOTAS
+   ------------------------- */
+
+/*
+   Requisito:
+   - display: flex en el contenedor
+   - las tarjetas son hijos directos
+   - ancho fijo
+   - padding y margin
+*/
+
+.pet-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.pet-card {
+    display: flex;
+    flex: 0 1 21rem;
+    flex-direction: column;
+    width: 21rem;
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-gris-300);
+    border-radius: var(--radio-lg);
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+}
+
+.pet-card:hover {
+    box-shadow: var(--sombra-media);
+}
+
+.pet-image {
+    width: calc(100% - 2rem);
+    height: 16rem;
+    margin: 1rem;
+    border: 0.25rem solid var(--color-marron);
+    border-radius: var(--radio-md);
+    object-fit: cover;
+}
+
+.pet-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.pet-content h3 {
+    margin-bottom: 1rem;
+}
+
+.pet-details {
+    margin: 0;
+}
+
+.pet-details > div {
+    margin-bottom: 0.75rem;
+}
+
+.pet-details dt {
+    color: var(--color-marron);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pet-details dd {
+    margin: 0.15rem 0 0;
+    color: var(--color-gris-700);
+}
+
+.pdf-link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    font-weight: 700;
+}
+
+/* -------------------------
+   FORMULARIO
+   ------------------------- */
+
+.form-card {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border: 1px solid var(--color-gris-300);
+    border-radius: var(--radio-lg);
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    color: var(--color-gris-900);
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-gris-500);
+    border-radius: var(--radio-sm);
+    background-color: var(--color-blanco);
+    color: var(--color-gris-900);
+    font: inherit;
+}
+
+.form-group input::placeholder {
+    color: var(--color-gris-500);
+}
+
+.form-group input:focus {
+    border-color: var(--color-verde-oscuro);
+}
+
+.button {
+    align-self: flex-start;
+    min-height: 3rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-verde-oscuro);
+    border-radius: var(--radio-sm);
+    background-color: var(--color-verde-oscuro);
+    color: var(--color-blanco);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: var(--color-marron-oscuro);
+    border-color: var(--color-marron-oscuro);
+}
+
+.form-note {
+    margin-bottom: 0;
+    color: var(--color-gris-700);
+    font-size: 0.9rem;
+}
+
+/* -------------------------
+   QUIÉNES SOMOS
+   ------------------------- */
+
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.info-card {
+    display: flex;
+    flex: 1 1 18rem;
+    flex-direction: column;
+    min-width: 0;
+    padding: 2rem;
+    border: 1px solid var(--color-gris-300);
+    border-radius: var(--radio-lg);
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+}
+
+.info-card h2 {
+    font-size: 1.5rem;
+}
+
+.info-card p {
+    color: var(--color-gris-700);
+}
+
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1.25rem;
+    border-radius: 50%;
+    background-color: var(--color-rosa);
+    color: var(--color-rosa-oscuro);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.contact-highlight {
+    background-color: var(--color-verde-claro);
+}
+
+address {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--color-gris-700);
+    font-style: normal;
+}
+
+address p {
+    margin-bottom: 0.5rem;
+}
+
+/* -------------------------
+   PIE DE PÁGINA
+   ------------------------- */
+
+.site-footer {
+    margin-top: 2rem;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--color-gris-300);
+    background-color: var(--color-blanco);
+    color: var(--color-gris-700);
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+
+/* Pantallas angostas: los enlaces pasan debajo del nombre */
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .hero-content {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .page-hero {
+        padding: 3rem 1.25rem;
+    }
+
+    .catalogo,
+    .content-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .category-selector {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .category-option {
+        width: 100%;
+    }
+
+    .category-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pet-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pet-card {
+        width: 100%;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+/* Preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

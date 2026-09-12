@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petfound — Contacto</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="index.html" class="nav-brand">Petfound</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contacto</h1>
+    <p>¿Encontraste una mascota o querés reportar un dato? Completá el formulario.</p>
+
+    <form class="formulario" method="GET" action="procesar.html">
+      <fieldset>
+        <legend>Tus datos</legend>
+
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresá tu nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" placeholder="Ingresá tu apellido" required>
+        </div>
+
+        <div class="campo">
+          <label for="dni">DNI</label>
+          <input type="text" id="dni" name="dni" placeholder="Sin puntos, ej: 30123456" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefono">Teléfono celular</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej: 221 555-1234" required>
+        </div>
+
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu-email@ejemplo.com" required>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Petfound — Sitio estático de ejemplo académico.</p>
+  </footer>
+
+</body>
+</html>
